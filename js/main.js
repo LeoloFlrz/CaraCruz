@@ -21,6 +21,7 @@ flipButton.addEventListener("click", () => {
         tails++;
     }
     setTimeout(updateStats, 3000);
+    disableButton()
 });
 
 resetButton.addEventListener("click", () => {
@@ -28,6 +29,15 @@ resetButton.addEventListener("click", () => {
     tails = 0;
     updateStats();
   });
+
+function disableButton() {
+    flipButton.disabled = true;
+    resetButton.disabled = true;
+    setTimeout(function() {
+        flipButton.disabled = false;
+        resetButton.disabled = false; 
+    }, 3000)
+}
 
 function updateStats() {
     document.querySelector("#heads-count").textContent = `Heads: ${heads}`
